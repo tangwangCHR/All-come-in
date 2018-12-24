@@ -1,0 +1,47 @@
+
+led_on.elf:     file format elf32-littlearm
+
+Disassembly of section .text:
+
+00000000 <_start>:
+   0:	e3a0da01 	mov	sp, #4096	; 0x1000
+   4:	eb000000 	bl	c <main>
+
+00000008 <halt>:
+   8:	eafffffe 	b	8 <halt>
+
+0000000c <main>:
+   c:	e1a0c00d 	mov	ip, sp
+  10:	e92dd800 	stmdb	sp!, {fp, ip, lr, pc}
+  14:	e24cb004 	sub	fp, ip, #4	; 0x4
+  18:	e3a02456 	mov	r2, #1442840576	; 0x56000000
+  1c:	e2822050 	add	r2, r2, #80	; 0x50
+  20:	e3a03456 	mov	r3, #1442840576	; 0x56000000
+  24:	e2833050 	add	r3, r3, #80	; 0x50
+  28:	e5933000 	ldr	r3, [r3]
+  2c:	e3c33b03 	bic	r3, r3, #3072	; 0xc00
+  30:	e5823000 	str	r3, [r2]
+  34:	e3a02456 	mov	r2, #1442840576	; 0x56000000
+  38:	e2822050 	add	r2, r2, #80	; 0x50
+  3c:	e3a03456 	mov	r3, #1442840576	; 0x56000000
+  40:	e2833050 	add	r3, r3, #80	; 0x50
+  44:	e5933000 	ldr	r3, [r3]
+  48:	e3833b01 	orr	r3, r3, #1024	; 0x400
+  4c:	e5823000 	str	r3, [r2]
+  50:	e3a02456 	mov	r2, #1442840576	; 0x56000000
+  54:	e2822054 	add	r2, r2, #84	; 0x54
+  58:	e3a03456 	mov	r3, #1442840576	; 0x56000000
+  5c:	e2833054 	add	r3, r3, #84	; 0x54
+  60:	e5933000 	ldr	r3, [r3]
+  64:	e20330df 	and	r3, r3, #223	; 0xdf
+  68:	e5823000 	str	r3, [r2]
+  6c:	eafffffe 	b	6c <main+0x60>
+Disassembly of section .comment:
+
+00000000 <.comment>:
+   0:	43434700 	cmpmi	r3, #0	; 0x0
+   4:	4728203a 	undefined
+   8:	2029554e 	eorcs	r5, r9, lr, asr #10
+   c:	2e342e33 	mrccs	14, 1, r2, cr4, cr3, {1}
+  10:	Address 0x10 is out of bounds.
+

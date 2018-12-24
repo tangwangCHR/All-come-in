@@ -1,0 +1,1 @@
+Relocate.o: Relocate.c
